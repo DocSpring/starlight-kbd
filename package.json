@@ -1,35 +1,25 @@
 {
-  "name": "starlight-kbd-monorepo",
-  "version": "0.0.1",
+  "name": "starlight-kbd",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "Starlight plugin to quickly and easily document keyboard shortcuts.",
   "author": "HiDeoo <github@hideoo.dev> (https://hideoo.dev)",
   "type": "module",
-  "scripts": {
-    "test": "pnpm --stream -r test",
-    "lint": "astro check --noSync && pnpm -r lint",
-    "format": "prettier -w --cache --ignore-unknown .",
-    "version": "pnpm changeset version && pnpm i --no-frozen-lockfile"
+  "exports": {
+    ".": "./packages/starlight-kbd/index.ts",
+    "./components": "./packages/starlight-kbd/user-components/index.ts",
+    "./components/KbdProvider.astro": "./packages/starlight-kbd/components/KbdProvider.astro",
+    "./components/KbdPicker.astro": "./packages/starlight-kbd/components/KbdPicker.astro",
+    "./overrides/ThemeSelect.astro": "./packages/starlight-kbd/overrides/ThemeSelect.astro",
+    "./overrides/ThemeProvider.astro": "./packages/starlight-kbd/overrides/ThemeProvider.astro",
+    "./package.json": "./package.json"
   },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.12",
-    "@hideoo/eslint-config": "^4.0.0",
-    "@hideoo/prettier-config": "^2.0.0",
-    "@hideoo/tsconfig": "^2.0.1",
-    "astro": "^5.3.0",
-    "eslint": "^9.19.0",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.7.3"
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.32.0"
   },
   "engines": {
     "node": ">=18.17.1"
   },
-  "packageManager": "pnpm@9.15.4",
-  "private": true,
-  "sideEffects": false,
   "keywords": [
     "starlight",
     "plugin",
