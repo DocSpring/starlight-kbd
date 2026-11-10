@@ -77,8 +77,9 @@ Astro.locals[didRenderKbdRestoreScriptSymbol] = true
           {kbd.map((chord, chordIndex) => {
             return (
               <Fragment>
+                {/* The keys as shown. Screen readers and Markdown converters read the label above instead: data-markdown-ignore tells AI agents' Markdown/HTML parity checks (afdocs) to skip them. */}
                 {/* prettier-ignore */}
-                <kbd aria-hidden="true" class="sl-kbd-chord">{chord.map((key) => <kbd>{key}</kbd>)}</kbd>
+                <kbd aria-hidden="true" data-markdown-ignore class="sl-kbd-chord">{chord.map((key) => <kbd>{key}</kbd>)}</kbd>
                 {chordIndex < kbd.length - 1 && ' '}
               </Fragment>
             )
